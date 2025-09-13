@@ -371,6 +371,12 @@ mongoose.connect(process.env.MONGO_URI, {
         }
     });
 
+
+    // Root route for Render testing
+app.get("/", (req, res) => {
+  res.send("✅ ShopEZ backend is running!");
+});
+
     // === END OF ROUTES ===
 
     app.listen(PORT, () => {
@@ -378,3 +384,4 @@ mongoose.connect(process.env.MONGO_URI, {
     });
 
 }).catch((e) => console.error(`❌ Error in DB connection: ${e.message}`));
+
