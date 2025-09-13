@@ -15,11 +15,13 @@ const Home = () => {
 
   const fetchBanner = async () => {
     try {
-      const response = await axios.get('http://localhost:6001/fetch-banner');
+      const response = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/fetch-banner`
+      );
       setBannerImg(response.data);
     } catch (err) {
       console.error("❌ Failed to fetch banner:", err.message || err);
-      alert("Backend not reachable. Make sure it is running on http://localhost:6001");
+      alert("Backend not reachable. Check REACT_APP_BACKEND_URL in .env file.");
     }
   };
 
